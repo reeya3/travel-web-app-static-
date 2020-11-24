@@ -1,0 +1,142 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 40rem;
+
+  &__side {
+  height: 40rem;
+  transition: all .8s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden; 
+  box-shadow: 1rem 1rem 4rem rgba($color-black, 0.2);
+  border-radius: 0.3rem;
+
+
+  &--front {
+    background-color:$color-white;
+  }
+  &--back {
+    transform: rotateY(180deg);
+    &-1 {
+      background-image: linear-gradient( to right bottom, $color-light-orange, $color-dark-orange);
+    }
+    &-2{
+      background-image: linear-gradient( to right bottom, rgba($color-light-blue,0.6), rgba($color-dark-blue,0.6));
+
+    }
+    &-3{
+      background-image: linear-gradient( to right bottom, rgba($color-primary,0.6), rgba($color-dark-green,0.6));
+    }
+  }
+}
+  
+  //when card:hovered, card:side will be transformed;
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+    &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  &__picture {
+    height: 15rem;
+    background-blend-mode: screen;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+    &--1{
+    background-image: linear-gradient( to right bottom, $color-light-orange, $color-dark-orange),
+                      url(../img/nat-4.jpg);
+
+    }
+     &--2{
+    background-image: linear-gradient( to right bottom, $color-light-blue, $color-dark-blue),
+                      url(../img/nat-5.jpg);
+
+    }
+     &--3{
+    background-image: linear-gradient( to right bottom, $color-secondary, $color-dark-green),
+                      url(../img/nat-5.jpg);
+
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    color: $color-white;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: right;
+    position: absolute;
+    top: 7rem;
+    right: 2rem;
+    width: 75%;
+
+  }
+
+  &__heading-span {
+    padding: 0rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1{
+      background-image: linear-gradient( to right bottom, rgba($color-light-orange,0.6), rgba($color-dark-orange,0.6));
+
+    }
+    &--2{
+      background-image: linear-gradient( to right bottom, rgba($color-light-blue,0.6), rgba($color-dark-blue,0.6));
+
+    }
+    &--3{
+      background-image: linear-gradient( to right bottom, rgba($color-primary,0.6), rgba($color-dark-green,0.6));
+    }
+  }
+
+  &__details {
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+    
+      li {
+        text-align: center;
+        font-size: 1.6rem;
+        padding: 1rem;
+        font-weight: 300;
+        &:not(:last-child) {
+          border-bottom: .1rem solid #eee
+        }
+      }
+    }
+  }
+
+  &__action {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+
+  }
+  &__price-box{
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 1rem;
+  }
+  &__price-only {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  &__price-value{
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+}

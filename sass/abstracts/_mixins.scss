@@ -1,0 +1,39 @@
+@mixin clearFix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+ //0-600px- phone  600/16= 37.5em
+ //600px-900px:tablet potrait= 900/16=56.255em
+ //900-1200: tablet landscape= 1200/16 = 75em
+ //1200-1800: general style desktop 1800/16= 112.5em
+ // 1800-++ : large desktop ;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em)
+      {@content};
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em)
+      {@content};
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em)
+      {@content};
+  }
+
+  @if $breakpoint == small-desktop {
+    @media only screen and (max-width: 90em)
+      {@content};
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em)
+      {@content};
+  }
+}
